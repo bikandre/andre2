@@ -1,11 +1,11 @@
 pipeline {
     agent any
-
+    properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '2', numToKeepStr: '5')), disableConcurrentBuilds()])
     stages {
         stage('clean-image') {
             steps {
                sh '''
-               docker rm -f $(docker ps -aq) || true 
+               docker rm -f $(docker ps -aq)
                '''
             }
         }
