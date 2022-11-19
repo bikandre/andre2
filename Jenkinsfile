@@ -5,21 +5,22 @@ pipeline {
         stage('clean-image') {
             steps {
                sh '''
-               docker rm -f $(docker ps -aq)
+               ls
+               pwd
                '''
             }
         }
        stage('build image') {
             steps {
                sh '''
-                docker build -t eric:001 .
+                touch s3andre
                '''
             }
         }
        stage('checking images') {
             steps {
                sh '''
-               docker images 
+               cat s3andre 
                '''
             }
         }
@@ -27,7 +28,7 @@ pipeline {
        stage('launch container') {
             steps {
                sh '''
-               docker run -i --name eric:001
+               mv s3andre s3dre
                '''
             }
         }
