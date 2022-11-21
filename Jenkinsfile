@@ -3,6 +3,12 @@ pipeline {
     options {
     buildDiscarder(logRotator(numToKeepStr: '30', artifactNumToKeepStr: '30'))
   }
+
+     environment {
+        USERNAME = 'devopseasylearning2021'
+        PASSWORD = 'Dev0ps2021@'
+    }
+
     stages {
         stage('clean-image') {
             steps {
@@ -14,22 +20,29 @@ pipeline {
        stage('build image') {
             steps {
                sh '''
-                docker build -t eric:001 .
+                docker build -t andrejenkins001 .
                '''
             }
         }
-       stage('checking images') {
+       stage('checking login') {
             steps {
                sh '''
-               docker images 
+               docker tag andrejenkins001 devopseasylearning2021/s3andre:andrejenkins001
+               '''
+            }
+       
+       stage('checking login') {
+            steps {
+               sh '''
+               docker login -u $USERNAME -p $PASSWORD
                '''
             }
         }
     
-       stage('launch container') {
+       stage('docker push') {
             steps {
                sh '''
-               docker run -i --name eric:001
+               docker push devopseasylearning2021/s3andre:jenkins001
                '''
             }
         }
