@@ -43,7 +43,7 @@ pipeline {
        stage('docker push') {
             steps {
                sh '''
-               docker push devopseasylearning2021/s3andre:jenkins001
+               docker push $USERNAME/s3andre:jenkins001
                '''
             }
         }
