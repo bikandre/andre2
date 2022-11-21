@@ -6,7 +6,7 @@ pipeline {
 
      environment {
         USERNAME = 'devopseasylearning2021'
-        PASSWORD = 'Dev0ps2021@'
+        PASSWORD = 'DevOps2021@'
   }
 
     stages {
@@ -52,3 +52,6 @@ pipeline {
 
 
 }
+
+
+
