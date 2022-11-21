@@ -1,9 +1,9 @@
 pipeline {
     agent any
     options {
-        buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '',
-     daysToKeepStr: '2', numToKeepStr: '5')), disableConcurrentBuilds))
-    }
+    buildDiscarder(logRotator(numToKeepStr: '30', artifactNumToKeepStr: '30'))
+  }
+    stages {
         stage('clean-image') {
             steps {
                sh '''
