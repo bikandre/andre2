@@ -24,14 +24,14 @@ pipeline {
                '''
             }
         }
-       stage('checking login') {
+       stage('docker login') {
             steps {
                sh '''
                docker tag andrejenkins001 devopseasylearning2021/s3andre:andrejenkins001
                '''
             }
        
-       stage('checking login') {
+       stage('docker login') {
             steps {
                sh '''
                docker login -u $USERNAME -p $PASSWORD
@@ -53,3 +53,4 @@ pipeline {
    }
 
 }
+
