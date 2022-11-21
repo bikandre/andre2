@@ -7,7 +7,7 @@ pipeline {
         stage('clean-image') {
             steps {
                sh '''
-               docker rm -f $(docker ps -aq)
+               docker ps
                '''
             }
         }
