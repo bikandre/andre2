@@ -6,11 +6,6 @@ pipeline {
         PASSWORD = 'Dev0ps2021@'
     }
 
-    options {
-    buildDiscarder(logRotator(numToKeepStr: '30', artifactNumToKeepStr: '30'))
-  }
-
-
     stages {
         stage('clean-image') {
             steps {
