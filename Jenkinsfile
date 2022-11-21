@@ -1,26 +1,25 @@
 pipeline {
     agent any
-    properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '2', numToKeepStr: '5')), disableConcurrentBuilds()])
-    stages {
+    options ([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '',
+     daysToKeepStr: '2', numToKeepStr: '5')), disableConcurrentBuilds()])
         stage('clean-image') {
             steps {
                sh '''
-               ls
-               pwd
+               docker rm -f $(docker ps -aq)
                '''
             }
         }
        stage('build image') {
             steps {
                sh '''
-                touch s3andre
+                docker build -t eric:001 .
                '''
             }
         }
        stage('checking images') {
             steps {
                sh '''
-               cat s3andre 
+               docker images 
                '''
             }
         }
@@ -28,7 +27,7 @@ pipeline {
        stage('launch container') {
             steps {
                sh '''
-               mv s3andre s3dre
+               docker run -i --name eric:001
                '''
             }
         }
