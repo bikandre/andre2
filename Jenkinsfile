@@ -1,6 +1,14 @@
 pipeline {
     agent any
-    
+    options {
+    buildDiscarder(logRotator(numToKeepStr: '30', artifactNumToKeepStr: '30'))
+  }
+
+     environment {
+        USERNAME = 'devopseasylearning2021'
+        PASSWORD = 'Dev0ps2021@'
+  }
+
     stages {
         stage('clean-image') {
             steps {
@@ -16,12 +24,13 @@ pipeline {
                '''
             }
         }
-       stage('docker login') {
+       stage('docker tag') {
             steps {
                sh '''
-               docker tag andrejenkins001 devopseasylearning2021/s3andre:andrejenkins001
+               docker tag andrejenkins001 devopseasylearning2021/s3andre:andrejenkins001 .
                '''
             }
+        }
        
        stage('docker login') {
             steps {
@@ -42,7 +51,4 @@ pipeline {
     }
 
 
-   }
-
 }
-
