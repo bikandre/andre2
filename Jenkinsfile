@@ -1,17 +1,10 @@
 pipeline {
     agent any
-    
-    environment {
-       DOCKERHUB_CREDENTIALS=credentials('dockerhub')
-  }
     options {
-    buildDiscarder(logRotator(numToKeepStr: '30', artifactNumToKeepStr: '30'))
+    buildDiscarder(logRotator(numToKeepStr: '3', artifactNumToKeepStr: '1'))
   }
-   
-
      environment {
-        registry = 'devopseasylearning2021/s3andre'
-        registryCredential = 'dockerhub'
+       DOCKERHUB_CREDENTIALS=credentials('dockerhub')
   }
 
     stages {
