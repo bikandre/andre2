@@ -1,12 +1,16 @@
 pipeline {
     agent any
+    environment {
+       DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+  }
     options {
     buildDiscarder(logRotator(numToKeepStr: '30', artifactNumToKeepStr: '30'))
   }
+   
 
      environment {
-        USERNAME = 'devopseasylearning2021'
-        PASSWORD = 'DevOps2021@'
+        registry = 'devopseasylearning2021/s3andre'
+        registryCredential = 'dockerhub'
   }
 
     stages {
@@ -31,19 +35,17 @@ pipeline {
                '''
             }
         }
-       
+
        stage('docker login') {
             steps {
-               sh '''
-               docker login -u $USERNAME -p $PASSWORD
-               '''
+                    sh 'echo "${password} | docker login -u ${username} --password-stdin'
             }
         }
-    
+
        stage('docker push') {
             steps {
                sh '''
-               docker push $USERNAME/s3andre:andrejenkins001
+               docker push devopseasylearning2021/s3andre:jenkins001
                '''
             }
         }
@@ -52,6 +54,3 @@ pipeline {
 
 
 }
-
-
-
