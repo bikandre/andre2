@@ -25,7 +25,7 @@ pipeline {
        stage('docker tag') {
             steps {
                sh '''
-               docker tag andrejenkins001 devopseasylearning2021/s3andre:andrejenkins001 
+               docker tag andrejenkins001 ${username}/s3andre:andrejenkins001 
                '''
             }
         }
