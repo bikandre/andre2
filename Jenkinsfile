@@ -12,7 +12,7 @@ pipeline {
      string (name: 'region', defaultValue: 'Atlanta south', description: 'AWS region to execute command')
      string (name: 'chartName', defaultValue: '', description: 'the name of the chart you want to dry run')
      string (name: 'nameSpace', defaultValue: '', description: 'the nameSpace of deployment')
-     choice (name: 'deploySource', choices: 'local/nremote', description: 'the helm chart source')
+     choice (name: 'deploySource', choices: '/nlocal/nremote', description: 'the helm chart source')
      choice choices: ['dev', 'test', 'preprod', 'prod'], description: 'environments', name: 'env'
     }
     stages { 
