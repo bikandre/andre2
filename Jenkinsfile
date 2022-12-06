@@ -15,8 +15,7 @@ pipeline {
      choice (name: 'deploySource', choices: 'local/nremote', description: 'the helm chart source')
      choice (name: 'env', choices: 'dev/test/preprod/prod', description: 'environments')
  
-    stages {
-        
+    stages { 
         stage('printing parameters') {
             steps {
                 script {
