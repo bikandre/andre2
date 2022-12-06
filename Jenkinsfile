@@ -14,7 +14,7 @@ pipeline {
      string (name: 'nameSpace', defaultValue: '', description: 'the nameSpace of deployment')
      choice (name: 'deploySource', choices: 'local/nremote', description: 'the helm chart source')
      choice (name: 'env', choices: 'dev/test/preprod/prod', description: 'environments')
- 
+    }
     stages { 
         stage('printing parameters') {
             steps {
