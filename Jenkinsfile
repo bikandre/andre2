@@ -17,7 +17,10 @@ pipeline {
      boolenParam (name: 'normalchart', defaultValue: 'false', description: 'if true the chart will install as normal chart')
      boolenParam (name: 'deployWithSecret', defaultValue: 'false', description: 'default is false if you dont want get the secret from AWS system manager, if set to true, it will get the secret from AWS system manager')
      }
-     stage('printing parameters') {
+ 
+    stages {
+        
+        stage('printing parameters') {
             steps {
                 script {
                     sh """
@@ -33,8 +36,6 @@ pipeline {
                 }
             }
         }
- 
-    stages {
         stage('clean-image') {
             steps {
                 sh'''
