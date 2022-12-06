@@ -13,7 +13,7 @@ pipeline {
      string (name: 'chartName', defaultValue: '', description: 'the name of the chart you want to dry run')
      string (name: 'nameSpace', defaultValue: '', description: 'the nameSpace of deployment')
      choice (name: 'deploySource', choices: 'local/nremote', description: 'the helm chart source')
-     choice (name: 'env', choices: '\dev\test\preprod\prod', description: 'your branch')
+     choice (name: 'env', choices: '\dev\test\preprod\prod', description: 'environments')
      boolenParam (name: 'normalchart', defaultValue: 'false', description: 'if true the chart will install as normal chart')
      boolenParam (name: 'deployWithSecret', defaultValue: 'false', description: 'default is false if you dont want get the secret from AWS system manager, if set to true, it will get the secret from AWS system manager')
      }
