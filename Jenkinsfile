@@ -14,8 +14,8 @@ pipeline {
      string (name: 'nameSpace', defaultValue: '', description: 'the nameSpace of deployment')
      choice (name: 'deploySource', choices: 'local/nremote', description: 'the helm chart source')
      choice (name: 'env', choices: 'dev/test/preprod/prod', description: 'environments')
-     boolenParam (name: 'normalchart', defaultValue: 'false', description: 'if true the chart will install as normal chart')
-     boolenParam (name: 'deployWithSecret', defaultValue: 'false', description: 'default is false if you dont want get the secret from AWS system manager, if set to true, it will get the secret from AWS system manager')
+     boolen (name: 'normalchart', defaultValue: 'false', description: 'if true the chart will install as normal chart')
+     boolen (name: 'deployWithSecret', defaultValue: 'false', description: 'default is false if you dont want get the secret from AWS system manager, if set to true, it will get the secret from AWS system manager')
      }
  
     stages {
