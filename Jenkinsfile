@@ -35,7 +35,7 @@ pipeline {
         stage('clean-image') {
             steps {
                 sh'''
-                  ls -la
+                  docker ps
                   '''
             }
         }
