@@ -10,8 +10,8 @@ pipeline {
     parameters {
      string (name: 'clusterName', defaultValue: 'eks', description: 'Name of deploying cluster')
      string (name: 'region', defaultValue: 'Atlanta south', description: 'AWS region to execute command')
-     string (name: 'chartName', defaultValue: '' description: 'the name of the chart you want to dry run')
-     string (name: 'nameSpace', defaultValue: '' description: 'the nameSpace of deployment')
+     string (name: 'chartName', defaultValue: 'ektech' description: 'the name of the chart you want to dry run')
+     string (name: 'nameSpace', defaultValue: 'ektech' description: 'the nameSpace of deployment')
      choice (name: 'deploySource', choices: 'local/nremote', description: 'the helm chart source')
      choice (name: 'env', choices: 'dev\test\preprod\prod' description: 'your branch')
      boolenParam (name: 'normalchart', defaultValue: 'false', description: 'if true the chart will install as normal chart')
