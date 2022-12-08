@@ -14,6 +14,7 @@ pipeline {
      string (name: 'nameSpace', defaultValue: '', description: 'the nameSpace of deployment')
      choice choices: ['local', 'remote'], description: 'environments', name: 'deploySource'
      choice choices: ['dev', 'test', 'preprod', 'prod'], description: 'environments', name: 'env'  
+     choice choices: ['Nelly', 'Juan', 'Andre', 'Idris'], description: 'Make your choice', name: 'ektech'
      booleanParam description: 'enter your cluster', name: 'which cluster'
     }
     stages { 
