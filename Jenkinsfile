@@ -13,7 +13,8 @@ pipeline {
      string (name: 'chartName', defaultValue: '', description: 'the name of the chart you want to dry run')
      string (name: 'nameSpace', defaultValue: '', description: 'the nameSpace of deployment')
      choice choices: ['local', 'remote'], description: 'environments', name: 'deploySource'
-     choice choices: ['dev', 'test', 'preprod', 'prod'], description: 'environments', name: 'env'     
+     choice choices: ['dev', 'test', 'preprod', 'prod'], description: 'environments', name: 'env'  
+     booleanParam description: 'enter your cluster', name: 'which cluster'
     }
     stages { 
         stage('printing parameters') {
