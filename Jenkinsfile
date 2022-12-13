@@ -71,6 +71,7 @@ pipeline {
             steps {
                sh '''
                docker push devopseasylearning2021/s3andre:andrejenkins001
+               ls -la
                '''
             }
         }
